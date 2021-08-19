@@ -1,0 +1,596 @@
+{
+ "alternate_names": [
+  "Kheops"
+ ],
+ "api_path": "/artists/45947",
+ "description": {
+  "plain": "Kheops, de son vrai nom \u00c9ric Mazel, est un DJ et producteur de hip-hop marseillais. Il fonde en 1986, avec le rappeur Akhenaton le mythique groupe IAM. Kheops dirige son propre label discographique, Sad Hill Records, qu'il lance en 1997 en m\u00eame temps que le mythique album-concept Sad Hill, r\u00e9\u00e9dit\u00e9 par la suite en 1998.\nEn 2000, il sort le deuxi\u00e8me \u201copus\u201d de Sad Hill avec Impact o\u00f9 se r\u00e9v\u00e9leront, entre autres, les Psy 4 de la Rime.\nIl est \u00e9galement connu pour \u00eatre un grand collectionneur de disques vinyles : sa collection compte en effet plus de 20 000 pi\u00e8ces. Ceux-ci lui auront permis de sortir des samples et des instrus venues d'ailleurs, dont lui seul a le secret."
+ },
+ "facebook_name": "Dj-Kheops-281348654670",
+ "followers_count": 6,
+ "header_image_url": "https://images.genius.com/e81752cd244bd4e62db42c03afec8897.300x300x1.png",
+ "id": 45947,
+ "image_url": "https://images.genius.com/e81752cd244bd4e62db42c03afec8897.300x300x1.png",
+ "instagram_name": "",
+ "is_meme_verified": false,
+ "is_verified": false,
+ "name": "DJ Kheops",
+ "translation_artist": false,
+ "twitter_name": "djkheops",
+ "url": "https://genius.com/artists/Dj-kheops",
+ "current_user_metadata": {
+  "permissions": [
+   "view_activity_stream"
+  ],
+  "excluded_permissions": [
+   "edit",
+   "edit_images",
+   "edit_names",
+   "edit_anything",
+   "merge",
+   "sort_artist_songs",
+   "follow",
+   "view_contribution_opportunities",
+   "edit_translation_artist",
+   "see_short_id"
+  ],
+  "interactions": {
+   "following": false
+  }
+ },
+ "description_annotation": {
+  "_type": "referent",
+  "annotator_id": 3026682,
+  "annotator_login": "elitinho",
+  "api_path": "/referents/6964148",
+  "classification": "accepted",
+  "fragment": "DJ Kheops",
+  "id": 6964148,
+  "is_description": true,
+  "path": "/6964148/Dj-kheops/Dj-kheops",
+  "range": {
+   "content": "DJ Kheops"
+  },
+  "song_id": null,
+  "url": "https://genius.com/6964148/Dj-kheops/Dj-kheops",
+  "verified_annotator_ids": [],
+  "annotatable": {
+   "api_path": "/artists/45947",
+   "context": null,
+   "id": 45947,
+   "image_url": "https://images.genius.com/e81752cd244bd4e62db42c03afec8897.300x300x1.png",
+   "link_title": "DJ Kheops",
+   "title": "DJ Kheops",
+   "type": "Artist",
+   "url": "https://genius.com/artists/Dj-kheops"
+  },
+  "annotations": [
+   {
+    "api_path": "/annotations/6964148",
+    "body": {
+     "plain": "Kheops, de son vrai nom \u00c9ric Mazel, est un DJ et producteur de hip-hop marseillais. Il fonde en 1986, avec le rappeur Akhenaton le mythique groupe IAM. Kheops dirige son propre label discographique, Sad Hill Records, qu'il lance en 1997 en m\u00eame temps que le mythique album-concept Sad Hill, r\u00e9\u00e9dit\u00e9 par la suite en 1998.\nEn 2000, il sort le deuxi\u00e8me \u201copus\u201d de Sad Hill avec Impact o\u00f9 se r\u00e9v\u00e9leront, entre autres, les Psy 4 de la Rime.\nIl est \u00e9galement connu pour \u00eatre un grand collectionneur de disques vinyles : sa collection compte en effet plus de 20 000 pi\u00e8ces. Ceux-ci lui auront permis de sortir des samples et des instrus venues d'ailleurs, dont lui seul a le secret."
+    },
+    "comment_count": 0,
+    "community": true,
+    "custom_preview": null,
+    "has_voters": true,
+    "id": 6964148,
+    "pinned": false,
+    "share_url": "https://genius.com/6964148",
+    "source": null,
+    "state": "accepted",
+    "url": "https://genius.com/6964148/Dj-kheops/Dj-kheops",
+    "verified": false,
+    "votes_total": 1,
+    "current_user_metadata": {
+     "permissions": [
+      "create_comment"
+     ],
+     "excluded_permissions": [
+      "vote",
+      "edit",
+      "cosign",
+      "uncosign",
+      "destroy",
+      "accept",
+      "reject",
+      "see_unreviewed",
+      "clear_votes",
+      "propose_edit_to",
+      "pin_to_profile",
+      "unpin_from_profile",
+      "update_source",
+      "edit_custom_preview"
+     ],
+     "interactions": {
+      "cosign": false,
+      "pyong": false,
+      "vote": null
+     },
+     "iq_by_action": {}
+    },
+    "authors": [
+     {
+      "attribution": 1.0,
+      "pinned_role": null,
+      "user": {
+       "api_path": "/users/3026682",
+       "avatar": {
+        "tiny": {
+         "url": "https://images.genius.com/avatars/tiny/f168dbd9b4eae59bbd88c3d17b0176e6",
+         "bounding_box": {
+          "width": 16,
+          "height": 16
+         }
+        },
+        "thumb": {
+         "url": "https://images.genius.com/avatars/thumb/f168dbd9b4eae59bbd88c3d17b0176e6",
+         "bounding_box": {
+          "width": 32,
+          "height": 32
+         }
+        },
+        "small": {
+         "url": "https://images.genius.com/avatars/small/f168dbd9b4eae59bbd88c3d17b0176e6",
+         "bounding_box": {
+          "width": 100,
+          "height": 100
+         }
+        },
+        "medium": {
+         "url": "https://images.genius.com/avatars/medium/f168dbd9b4eae59bbd88c3d17b0176e6",
+         "bounding_box": {
+          "width": 300,
+          "height": 400
+         }
+        }
+       },
+       "header_image_url": "https://s3.amazonaws.com/filepicker-images-rapgenius/UYV7BdaMSYS1F9oo114v_b35a9f3a91764506aab3e0ba33889563.png",
+       "human_readable_role_for_display": "Moderator",
+       "id": 3026682,
+       "iq": 43123,
+       "login": "elitinho",
+       "name": "elitinho",
+       "role_for_display": "moderator",
+       "url": "https://genius.com/elitinho",
+       "current_user_metadata": {
+        "permissions": [],
+        "excluded_permissions": [
+         "follow"
+        ],
+        "interactions": {
+         "following": false
+        }
+       }
+      }
+     }
+    ],
+    "cosigned_by": [],
+    "rejection_comment": null,
+    "verified_by": null
+   }
+  ]
+ },
+ "user": null,
+ "songs": [
+  {
+   "annotation_count": 1,
+   "api_path": "/songs/371497",
+   "full_title": "La Saga 2000 by\u00a0DJ\u00a0Kheops (Ft.\u00a0Dreddy\u00a0Kruger, Faf\u00a0Larage & Prodigal\u00a0Sunn)",
+   "header_image_thumbnail_url": "https://images.genius.com/0e3ecc918fdc54f3e98f832667f53d5c.300x300x1.jpg",
+   "header_image_url": "https://images.genius.com/0e3ecc918fdc54f3e98f832667f53d5c.600x600x1.jpg",
+   "id": 371497,
+   "lyrics_owner_id": 187926,
+   "lyrics_state": "complete",
+   "path": "/Dj-kheops-la-saga-2000-lyrics",
+   "pyongs_count": null,
+   "song_art_image_thumbnail_url": "https://images.genius.com/0e3ecc918fdc54f3e98f832667f53d5c.300x300x1.jpg",
+   "song_art_image_url": "https://images.genius.com/0e3ecc918fdc54f3e98f832667f53d5c.600x600x1.jpg",
+   "stats": {
+    "accepted_annotations": 0,
+    "contributors": 9,
+    "iq_earners": 8,
+    "transcribers": 2,
+    "unreviewed_annotations": 0,
+    "verified_annotations": 0,
+    "hot": false
+   },
+   "title": "La Saga 2000",
+   "title_with_featured": "La Saga 2000 (Ft.\u00a0Dreddy\u00a0Kruger, Faf\u00a0Larage & Prodigal\u00a0Sunn)",
+   "url": "https://genius.com/Dj-kheops-la-saga-2000-lyrics",
+   "song_art_primary_color": "#b41c24",
+   "song_art_secondary_color": "#9c0f18",
+   "song_art_text_color": "#fff",
+   "primary_artist": {
+    "api_path": "/artists/45947",
+    "header_image_url": "https://images.genius.com/e81752cd244bd4e62db42c03afec8897.300x300x1.png",
+    "id": 45947,
+    "image_url": "https://images.genius.com/e81752cd244bd4e62db42c03afec8897.300x300x1.png",
+    "is_meme_verified": false,
+    "is_verified": false,
+    "name": "DJ Kheops",
+    "url": "https://genius.com/artists/Dj-kheops"
+   },
+   "apple_music_id": "693562000",
+   "apple_music_player_url": "https://genius.com/songs/371497/apple_music_player",
+   "description": {
+    "plain": "?"
+   },
+   "embed_content": "<div id='rg_embed_link_371497' class='rg_embed_link' data-song-id='371497'>Read <a href='https://genius.com/Dj-kheops-la-saga-2000-lyrics'>\u201cLa Saga 2000\u201d by DJ\u00a0Kheops</a> on Genius</div> <script crossorigin src='//genius.com/songs/371497/embed.js'></script>",
+   "featured_video": false,
+   "lyrics_placeholder_reason": null,
+   "recording_location": null,
+   "release_date": null,
+   "release_date_for_display": "2000",
+   "current_user_metadata": {
+    "permissions": [
+     "view_apple_music_player",
+     "create_comment",
+     "view_song_story_gallery"
+    ],
+    "excluded_permissions": [
+     "follow",
+     "award_transcription_iq",
+     "remove_transcription_iq",
+     "see_pageviews",
+     "pyong",
+     "edit_lyrics",
+     "view_annotation_engagement_data",
+     "publish",
+     "unpublish",
+     "edit_spotify_details",
+     "hide",
+     "unhide",
+     "toggle_featured_video",
+     "add_pinned_annotation_to",
+     "add_community_annotation_to",
+     "destroy",
+     "mark_as_not_spam",
+     "edit_spotify_annotations_for",
+     "verify_lyrics",
+     "unverify_lyrics",
+     "edit_anything",
+     "edit_any_media",
+     "edit",
+     "rename",
+     "edit_tags",
+     "watch_fact_track",
+     "reindex",
+     "view_lyrics_synchronization",
+     "enable_media",
+     "disable_media",
+     "edit_lyrics_or_annotation_brackets",
+     "see_editorial_indicators",
+     "view_attribution_visualization",
+     "edit_annotation_brackets",
+     "preview_lyrics_for_export",
+     "hide_apple_player",
+     "unhide_apple_player",
+     "trigger_apple_match",
+     "mark_lyrics_evaluation_as_approved",
+     "mark_lyrics_evaluation_as_staff_approved",
+     "mark_lyrics_evaluation_as_unapproved",
+     "mark_lyrics_evaluation_as_un_staff_approved",
+     "view_transcriber_media_player",
+     "override_apple_match",
+     "set_song_color_gradient",
+     "edit_youtube_url",
+     "edit_soundcloud_url",
+     "edit_spotify_uuid",
+     "edit_vevo_url",
+     "moderate_annotations",
+     "create_annotation",
+     "see_short_id",
+     "manage_chart_item",
+     "create_tag",
+     "propose_lyrics_edit",
+     "moderate_lyrics_edit_proposals",
+     "preview_react_song_page"
+    ],
+    "interactions": {
+     "pyong": false,
+     "following": false
+    },
+    "relationships": {},
+    "iq_by_action": {}
+   },
+   "album": {
+    "api_path": "/albums/168520",
+    "cover_art_url": "https://images.genius.com/e3455bea0ba9bf73e14e31106e8b95a4.600x600x1.jpg",
+    "full_title": "Sad Hill Impact by DJ Kheops",
+    "id": 168520,
+    "name": "Sad Hill Impact",
+    "url": "https://genius.com/albums/Dj-kheops/Sad-hill-impact",
+    "artist": {
+     "api_path": "/artists/45947",
+     "header_image_url": "https://images.genius.com/e81752cd244bd4e62db42c03afec8897.300x300x1.png",
+     "id": 45947,
+     "image_url": "https://images.genius.com/e81752cd244bd4e62db42c03afec8897.300x300x1.png",
+     "is_meme_verified": false,
+     "is_verified": false,
+     "name": "DJ Kheops",
+     "url": "https://genius.com/artists/Dj-kheops"
+    }
+   },
+   "custom_performances": [],
+   "description_annotation": {
+    "_type": "referent",
+    "annotator_id": 187926,
+    "annotator_login": "Momo_RGAr",
+    "api_path": "/referents/3767785",
+    "classification": "needs_exegesis",
+    "fragment": "La Saga 2000",
+    "id": 3767785,
+    "is_description": true,
+    "path": "/3767785/Dj-kheops-la-saga-2000/La-saga-2000",
+    "range": {
+     "content": "La Saga 2000"
+    },
+    "song_id": 371497,
+    "url": "https://genius.com/3767785/Dj-kheops-la-saga-2000/La-saga-2000",
+    "verified_annotator_ids": [],
+    "annotatable": {
+     "api_path": "/songs/371497",
+     "client_timestamps": {
+      "updated_by_human_at": 1598735567,
+      "lyrics_updated_at": 1479033596
+     },
+     "context": "DJ Kheops",
+     "id": 371497,
+     "image_url": "https://images.genius.com/0e3ecc918fdc54f3e98f832667f53d5c.600x600x1.jpg",
+     "link_title": "La Saga 2000 by\u00a0DJ\u00a0Kheops (Ft.\u00a0Dreddy\u00a0Kruger, Faf\u00a0Larage & Prodigal\u00a0Sunn)",
+     "title": "La Saga 2000",
+     "type": "Song",
+     "url": "https://genius.com/Dj-kheops-la-saga-2000-lyrics"
+    },
+    "annotations": [
+     {
+      "api_path": "/annotations/3767785",
+      "body": {
+       "plain": ""
+      },
+      "comment_count": 0,
+      "community": true,
+      "custom_preview": null,
+      "has_voters": false,
+      "id": 3767785,
+      "pinned": false,
+      "share_url": "https://genius.com/3767785",
+      "source": null,
+      "state": "needs_exegesis",
+      "url": "https://genius.com/3767785/Dj-kheops-la-saga-2000/La-saga-2000",
+      "verified": false,
+      "votes_total": 0,
+      "current_user_metadata": {
+       "permissions": [],
+       "excluded_permissions": [
+        "vote",
+        "edit",
+        "cosign",
+        "uncosign",
+        "destroy",
+        "accept",
+        "reject",
+        "see_unreviewed",
+        "clear_votes",
+        "propose_edit_to",
+        "pin_to_profile",
+        "unpin_from_profile",
+        "update_source",
+        "edit_custom_preview",
+        "create_comment"
+       ],
+       "interactions": {
+        "cosign": false,
+        "pyong": false,
+        "vote": null
+       },
+       "iq_by_action": {}
+      },
+      "authors": [
+       {
+        "attribution": 1.0,
+        "pinned_role": null,
+        "user": {
+         "api_path": "/users/187926",
+         "avatar": {
+          "tiny": {
+           "url": "https://images.genius.com/avatars/tiny/1144c477232e5286ca5b8c011131633d",
+           "bounding_box": {
+            "width": 16,
+            "height": 16
+           }
+          },
+          "thumb": {
+           "url": "https://images.genius.com/avatars/thumb/1144c477232e5286ca5b8c011131633d",
+           "bounding_box": {
+            "width": 32,
+            "height": 32
+           }
+          },
+          "small": {
+           "url": "https://images.genius.com/avatars/small/1144c477232e5286ca5b8c011131633d",
+           "bounding_box": {
+            "width": 100,
+            "height": 100
+           }
+          },
+          "medium": {
+           "url": "https://images.genius.com/avatars/medium/1144c477232e5286ca5b8c011131633d",
+           "bounding_box": {
+            "width": 300,
+            "height": 400
+           }
+          }
+         },
+         "header_image_url": "https://images.genius.com/avatars/medium/1144c477232e5286ca5b8c011131633d",
+         "human_readable_role_for_display": "Moderator",
+         "id": 187926,
+         "iq": 190848,
+         "login": "Momo_RGAr",
+         "name": "Momo G",
+         "role_for_display": "moderator",
+         "url": "https://genius.com/Momo_RGAr",
+         "current_user_metadata": {
+          "permissions": [],
+          "excluded_permissions": [
+           "follow"
+          ],
+          "interactions": {
+           "following": false
+          }
+         }
+        }
+       }
+      ],
+      "cosigned_by": [],
+      "rejection_comment": null,
+      "verified_by": null
+     }
+    ]
+   },
+   "featured_artists": [
+    {
+     "api_path": "/artists/6347",
+     "header_image_url": "https://images.genius.com/04da9dbf89a5c0af71b502357b236b09.400x454x1.jpg",
+     "id": 6347,
+     "image_url": "https://images.genius.com/04da9dbf89a5c0af71b502357b236b09.400x454x1.jpg",
+     "is_meme_verified": false,
+     "is_verified": false,
+     "name": "Dreddy Kruger",
+     "url": "https://genius.com/artists/Dreddy-kruger"
+    },
+    {
+     "api_path": "/artists/2866",
+     "header_image_url": "https://images.genius.com/6404847c1f00882a62ad9f4924a51ed4.390x594x1.jpg",
+     "id": 2866,
+     "image_url": "https://images.genius.com/6404847c1f00882a62ad9f4924a51ed4.390x594x1.jpg",
+     "is_meme_verified": false,
+     "is_verified": false,
+     "name": "Prodigal Sunn",
+     "url": "https://genius.com/artists/Prodigal-sunn"
+    },
+    {
+     "api_path": "/artists/12066",
+     "header_image_url": "https://images.genius.com/5c14c0da9c56ac792046b51174a88c1b.320x214x1.jpg",
+     "id": 12066,
+     "image_url": "https://images.genius.com/5c14c0da9c56ac792046b51174a88c1b.320x214x1.jpg",
+     "is_meme_verified": false,
+     "is_verified": false,
+     "name": "Faf Larage",
+     "url": "https://genius.com/artists/Faf-larage"
+    }
+   ],
+   "lyrics_marked_complete_by": null,
+   "media": [
+    {
+     "provider": "youtube",
+     "start": 0,
+     "type": "video",
+     "url": "http://www.youtube.com/watch?v=ENzJTWOqr00"
+    }
+   ],
+   "producer_artists": [
+    {
+     "api_path": "/artists/45947",
+     "header_image_url": "https://images.genius.com/e81752cd244bd4e62db42c03afec8897.300x300x1.png",
+     "id": 45947,
+     "image_url": "https://images.genius.com/e81752cd244bd4e62db42c03afec8897.300x300x1.png",
+     "is_meme_verified": false,
+     "is_verified": false,
+     "name": "DJ Kheops",
+     "url": "https://genius.com/artists/Dj-kheops"
+    }
+   ],
+   "song_relationships": [
+    {
+     "relationship_type": "samples",
+     "type": "samples",
+     "songs": []
+    },
+    {
+     "relationship_type": "sampled_in",
+     "type": "sampled_in",
+     "songs": []
+    },
+    {
+     "relationship_type": "interpolates",
+     "type": "interpolates",
+     "songs": []
+    },
+    {
+     "relationship_type": "interpolated_by",
+     "type": "interpolated_by",
+     "songs": []
+    },
+    {
+     "relationship_type": "cover_of",
+     "type": "cover_of",
+     "songs": []
+    },
+    {
+     "relationship_type": "covered_by",
+     "type": "covered_by",
+     "songs": []
+    },
+    {
+     "relationship_type": "remix_of",
+     "type": "remix_of",
+     "songs": []
+    },
+    {
+     "relationship_type": "remixed_by",
+     "type": "remixed_by",
+     "songs": []
+    },
+    {
+     "relationship_type": "live_version_of",
+     "type": "live_version_of",
+     "songs": []
+    },
+    {
+     "relationship_type": "performed_live_as",
+     "type": "performed_live_as",
+     "songs": []
+    }
+   ],
+   "verified_annotations_by": [],
+   "verified_contributors": [],
+   "verified_lyrics_by": [],
+   "writer_artists": [
+    {
+     "api_path": "/artists/6347",
+     "header_image_url": "https://images.genius.com/04da9dbf89a5c0af71b502357b236b09.400x454x1.jpg",
+     "id": 6347,
+     "image_url": "https://images.genius.com/04da9dbf89a5c0af71b502357b236b09.400x454x1.jpg",
+     "is_meme_verified": false,
+     "is_verified": false,
+     "name": "Dreddy Kruger",
+     "url": "https://genius.com/artists/Dreddy-kruger"
+    },
+    {
+     "api_path": "/artists/2866",
+     "header_image_url": "https://images.genius.com/6404847c1f00882a62ad9f4924a51ed4.390x594x1.jpg",
+     "id": 2866,
+     "image_url": "https://images.genius.com/6404847c1f00882a62ad9f4924a51ed4.390x594x1.jpg",
+     "is_meme_verified": false,
+     "is_verified": false,
+     "name": "Prodigal Sunn",
+     "url": "https://genius.com/artists/Prodigal-sunn"
+    },
+    {
+     "api_path": "/artists/12066",
+     "header_image_url": "https://images.genius.com/5c14c0da9c56ac792046b51174a88c1b.320x214x1.jpg",
+     "id": 12066,
+     "image_url": "https://images.genius.com/5c14c0da9c56ac792046b51174a88c1b.320x214x1.jpg",
+     "is_meme_verified": false,
+     "is_verified": false,
+     "name": "Faf Larage",
+     "url": "https://genius.com/artists/Faf-larage"
+    }
+   ],
+   "artist": "DJ Kheops",
+   "lyrics": "Yeah, back up in here again\nFrom Medina to Marseille\nYou know what I'm sayin? La Saga 2000\nTakin Francs to the bank\n\nUp in Sad Hill, IAM, the Sunz of Man\nRoyal Fam rule, IAM, you know the jam\nFaf Larage, wrapped in camouflage\nHip-hop in Mars to Medina is fuckin large\n\nIci y'a Sad Hill, IAM et Sunz of Man, Royal Fam\nFaf Larage sur c'refrain\nLa Saga 2000 pour te remettre \u00e0 la page\nHip-hop, international de BK \u00e0 Mars\n\nI can't see a thing, but I care\nA mouse piss on cotton, my style is rotten\nSpoiled by vets who Protect they Necks\nDo the knowledge to the mathematical slang that's handsome\nFunny hot dogs get played at the speed of fast forward\nFor comin toward me with that bullshit, I'm from Bushwick\n7-1-8, get it straight, you're fake\nI slap the shit outta you with your own fuckin tape\nDreddy Kruger from New York, Faf Larage go ahead and elaborate\nSunz of Man, IAM, Royal Fam, Coloquinte et Faf Larage\nImpact de rime large, BK et Mars connecte\nJe vois les faux MCs s\u2019vexent, c'est ce qui me rallie \u00e0 c\u2019texte\nCette shit est worldwide\nKirbs fout le son \u00e0 fond, c'est chaud qu'on y aille\nOptimis\u00e9 par mic c'est high quand je taille\nOn avance fort voil\u00e0 c'que c'est, c'est d'rester un exemple\nConcret d'un petit qui vient de la rue\nPour ceux qui avaient pas le choix, pour ceux qui y croient\nPour ceux qui voulaient r\u00e9ussir mais qu'on a brid\u00e9 en bas\nPour ceux qui croient que notre place est dans des usines ou des prisons\nOn vous chie dessus, vise les sommets avec les n\u00f4tres et on y tr\u00f4ne sur\n\n\"From Medina to Marseille\" Timbo King\n\nWe movin on strong, learnin right from wrong\nWhen you dead, buried and gone, yo the world goes on\nYou see, life is like a Sad Hill song, some blast chrome\nThe ghetto is a place that we all call home\n\nIt's the universal Sun-splash, when the guns blast\nSo run fast, some knights saw the blood and hash, green grass\nA team of solid brass load a machine for task\nReminice about the days when I schemed for cash\nThought that was the past, never thought my dreams would pass\nHavin a flashback, I was a king, movin to jazz\nVocal pizazz, every word is sharp as the last\nWe move in dark mass, tune as a harp, we mind cast\nKeep my body fast, like a whirlwind, of Tai Chi\nIt's the alley do-or-die emcee, one man assembly\nI simply, came to rock this M-I-C\nEndevour to be the greatest livin form of energy\nSur la ville comme une m\u00e9lodie triste mais demain jur\u00e9\nJ'en ferai la symphonie de mes tripes\nPour ceux qui ne savent pas lire\nIl faut qu\u2019ils puissent m'entendre, \u00e9crit pour ceux qui comprennent\nQu\u2019il faut s'en sortir ensemble\n\u00c9crit pour ceux qui veulent niquer le rap\nOn sent que certains nazes ont plus d'impact que de gunshot\n\nI spit my shit like a hurricane\nTearin your frame, sparin your family name\nStrange and insane from a lifetime of pain\nUsed to roll dice on the train, precise in the game\nFuck your ice, fame and shame, I splice juguler vain\nSpit that W slang bang, witness the bloodstain\nThe flood came, sustain the grain through mud and rain\nSustain the grain through mud and rain\nYo, sustain the grain through mud and rain\n\nWe movin on strong, learnin right from wrong\nWhen you dead, buried and gone, yo the world goes on\nYou see, life is like a Sad Hill song, some blast chrome\nThe ghetto is a place that we all call home\nUp in Sad Hill, IAM, the Sunz of Man\nRoyal Fam rule, IAM, you know the jam\nFaf Larage, wrapped in camouflage\nHip-hop in Mars to Medina is fuckin large\n\nWe movin on strong, learnin right from wrong\nWhen you dead, buried and gone, yo the world goes on\nYou see, life is like a Sad Hill song, some blast chrome\nThe ghetto is a place that we all call home\n\nMarseille.. Marseille\nThat's how we do it\nIt's just that world that we live in\nFrancs to the bank\nWe got plans to live large\nLa Saga 2000\nWe got plans to live large\nYeah, yeah, Kheops\nIt's just that world that we live inEmbedShare URLCopyEmbedCopy"
+  }
+ ]
+}
