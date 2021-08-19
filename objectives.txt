@@ -1,0 +1,12 @@
+Objectif : 
+
+Comparer les paroles de deux artistes
+
+Features :
+- stockage des paroles des artistes dans une base de données
+- téléchargement de paroles sur demande de l'utilisateur
+- mots les plus employés de l'artiste
+- nbre de mots par chanson / diversité lexicale
+- corrélation entre mots à la demande de l'utilisateur (liste déroulante pour des corrélations par défaut)
+- comparaison des différentes métriques (top mots employés, diversité lexicale/nbre de mots...) entre deux artistes
+- corrélation des différentes métriques avec le temps
