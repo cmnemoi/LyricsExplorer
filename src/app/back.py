@@ -53,7 +53,7 @@ def artist_lyrics(artist):
 
 def lexdiv(lyrics):
     try:
-        return len(set(lyrics.split()))/float(len(lyrics.split()))
+        return len(set(lyrics.split()))/float(len(lyrics.split())) * 100
     except:
         return 0
 
@@ -96,6 +96,7 @@ def fitLine(x, y):
 
 songs = pd.read_csv('data/songs.csv')
 songs = songs.drop(['Unnamed: 0','fact_track','song_story'],axis=1)
+songs = songs[songs['artist'] != 'Blue Virus']
 songs.dropna(inplace=True)
 
 artists = np.unique(songs['artist'])
@@ -113,3 +114,21 @@ min_lexdiv = artists[lexical_diversity['mean'].argmin()]
 max_lexdiv = artists[lexical_diversity['mean'].argmax()]
 
 songs.reset_index(drop=True,inplace=True)
+
+
+nb_songs_per_artist_l = [songs.groupby('artist').count().loc[artist,'title'] for artist in artists]
+nb_songs_per_artist = pd.DataFrame(nb_songs_per_artist_l,columns=['Number of songs'],index=artists)
+
+nb_songs_per_artist_per_year = nb_songs_per_artist['Number of songs']/songs.groupby('artist')['age'].max().values
+
+fig1, ax1 = plt.subplots()
+ax1.hist(nb_songs_per_artist,orientation='horizontal')
+ax1.set_title('Histogram of number of songs per artist')
+ax1.set_xlabel('Number of artists')
+ax1.set_ylabel('Number of songs')
+
+fig2, ax2 = plt.subplots()
+ax2.hist(nb_songs_per_artist_per_year,orientation='horizontal')
+ax2.set_title('Histogram of number of songs per artist per year')
+ax2.set_xlabel('Number of artists')
+ax2.set_ylabel('Number of songs')
