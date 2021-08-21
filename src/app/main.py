@@ -27,7 +27,18 @@ st.write(back.nb_songs_per_artist.sort_values(ascending=False,by='Number of song
 st.subheader('... relatively to their longevity :')
 st.write(back.nb_songs_per_artist_per_year.sort_values(ascending=False).head(5))
 
-st.subheader('Most of artists released less than 200 songs :')
+st.subheader('Most of artists released less than 200 songs')
 st.pyplot(back.fig1)
 st.subheader('... or 20 songs per year (1 album and a half!)')
 st.pyplot(back.fig2)
+
+st.subheader("Recent artists release more songs than old-school ones")
+st.write("(Try to find Jul...)")
+st.pyplot(back.fig3)
+
+st.header('"Suis-je le seul érudit du carré VIP ?" (Vald - Primitif)')
+st.write("Does Vald is as erudite as he claims ? Let's find out.")
+
+st.subheader("Number of words used per song :")
+st.pyplot(back.fig4)
+
