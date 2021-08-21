@@ -94,6 +94,7 @@ def fitLine(x, y):
         
     return y_fit, x, r2
 
+
 songs = pd.read_csv('data/songs.csv')
 songs = songs.drop(['Unnamed: 0','fact_track','song_story'],axis=1)
 songs = songs[songs['artist'] != 'Blue Virus']
@@ -118,8 +119,10 @@ songs.reset_index(drop=True,inplace=True)
 
 nb_songs_per_artist_l = [songs.groupby('artist').count().loc[artist,'title'] for artist in artists]
 nb_songs_per_artist = pd.DataFrame(nb_songs_per_artist_l,columns=['Number of songs'],index=artists)
-
 nb_songs_per_artist_per_year = nb_songs_per_artist['Number of songs']/songs.groupby('artist')['age'].max().values
+
+# Words per song
+word_counts = [len(song.split(' ')) for song in songs['lyrics']]
 
 fig1, ax1 = plt.subplots()
 ax1.hist(nb_songs_per_artist,orientation='horizontal')
@@ -132,3 +135,24 @@ ax2.hist(nb_songs_per_artist_per_year,orientation='horizontal')
 ax2.set_title('Histogram of number of songs per artist per year')
 ax2.set_xlabel('Number of artists')
 ax2.set_ylabel('Number of songs')
+
+fig3, ax3 = plt.subplots(figsize=(10,10))
+x= songs.groupby('artist')['age'].max().values
+y= nb_songs_per_artist_per_year
+ax3.scatter(x,y)
+
+y_fit, t, r2 = fitLine(x, y)
+# Plot the fitted lines
+i,j = np.argmin(t), np.argmax(t)
+ax3.plot(t[[i,j]], y_fit[[i,j]])
+ax3.annotate(r'$r^2={:0.2f}$'.format(r2), style='italic',xy=(28,50))
+ax3.set_title('Number of songs per year released according to years of activity')
+ax3.set_xlabel('Years of activity')
+ax3.set_ylabel('Songs per year')
+
+fig4,ax4 = plt.subplots()
+ax4.hist(word_counts,orientation='horizontal')
+ax4.set_xlabel("Words in song")
+ax4.set_ylabel("Number of songs")
+
+
