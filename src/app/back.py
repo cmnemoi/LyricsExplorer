@@ -3,6 +3,8 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import seaborn as sns
 sns.set()
+import plotly.express as px
+import plotly.graph_objects as go
 from stop_words import get_stop_words
 import re
 from wordcloud import WordCloud
@@ -56,6 +58,10 @@ def lexdiv(lyrics):
         return len(set(lyrics.split()))/float(len(lyrics.split())) * 100
     except:
         return 0
+
+def calc_artist_nb_of_words(artist):
+    return len(artist_lyrics(artist).split(' '))
+    
 
 def calcFreqOfTerm(artist, terms):    
     # Determine how many songs mention a given term
@@ -123,36 +129,34 @@ nb_songs_per_artist_per_year = nb_songs_per_artist['Number of songs']/songs.grou
 
 # Words per song
 word_counts = [len(song.split(' ')) for song in songs['lyrics']]
+word_counts = list(filter(lambda x: x<2000, word_counts))
 
-fig1, ax1 = plt.subplots()
-ax1.hist(nb_songs_per_artist,orientation='horizontal')
-ax1.set_title('Histogram of number of songs per artist')
-ax1.set_xlabel('Number of artists')
-ax1.set_ylabel('Number of songs')
+#Words per song per artist
+nb_words_per_song_per_artist = pd.Series([calc_artist_nb_of_words(artist)/nb_songs_per_artist.loc[artist,'Number of songs'] for artist in artists],index=artists)
 
-fig2, ax2 = plt.subplots()
-ax2.hist(nb_songs_per_artist_per_year,orientation='horizontal')
-ax2.set_title('Histogram of number of songs per artist per year')
-ax2.set_xlabel('Number of artists')
-ax2.set_ylabel('Number of songs')
 
-fig3, ax3 = plt.subplots(figsize=(10,10))
+fig1 = px.bar(x=artists,y=nb_songs_per_artist_l,title='Distribution of number of songs per artist'
+            ,labels={'x':'Artists','y':'Number of songs'},width=800,height=800)
+
+fig2 = px.bar(x=artists,y=nb_songs_per_artist_per_year,title='Distribution of number of songs per artist per year',
+                labels={'x':'Artists','y':'Number of songs per year'},width=800,height=800)
+
 x= songs.groupby('artist')['age'].max().values
 y= nb_songs_per_artist_per_year
-ax3.scatter(x,y)
-
 y_fit, t, r2 = fitLine(x, y)
-# Plot the fitted lines
 i,j = np.argmin(t), np.argmax(t)
-ax3.plot(t[[i,j]], y_fit[[i,j]])
-ax3.annotate(r'$r^2={:0.2f}$'.format(r2), style='italic',xy=(28,50))
-ax3.set_title('Number of songs per year released according to years of activity')
-ax3.set_xlabel('Years of activity')
-ax3.set_ylabel('Songs per year')
 
-fig4,ax4 = plt.subplots()
-ax4.hist(word_counts,orientation='horizontal')
-ax4.set_xlabel("Words in song")
-ax4.set_ylabel("Number of songs")
 
+fig3_1 = px.scatter(x=x,y=y,hover_name=artists,labels={'x':'Years of activity','y':'Number of songs per year'},width=800,height=800)
+fig3_2 = px.line(x=t[[i,j]], y=y_fit[[i,j]],width=800,height=800)
+fig3 = go.Figure(data=fig3_1.data + fig3_2.data,layout=go.Layout(width=800,height=800))
+fig3.add_annotation(text=r'R²={:0.2f}'.format(r2),x=28,y=50)
+
+fig4 = px.histogram(word_counts,title="Histogram of words per song",width=800,height=800,labels={'value':'Words in song','count':'Number of songs'})
+
+fig5 = px.bar(x=artists,y=nb_words_per_song_per_artist,width=800,height=800,title='Distribution of number of words per song per artist',
+              labels={'x':'Artists','y':'Number of words'})
+
+fig6 = px.histogram(lexical_diversity['mean'],width=800,height=800,title='Histogram of percentage of UNIQUE words per song per artist',
+              labels={'x':'Artists','y':'Percentage of unique words'})
 
