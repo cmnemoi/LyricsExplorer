@@ -101,7 +101,7 @@ def fitLine(x, y):
     return y_fit, x, r2
 
 
-songs = pd.read_csv('data/songs.csv')
+songs = pd.read_csv('https://drive.google.com/file/d/1Q8vF7yAUimuMOby6dvjArtqoITX_jwR6/view?usp=sharing')
 songs = songs.drop(['Unnamed: 0','fact_track','song_story'],axis=1)
 songs = songs[songs['artist'] != 'Blue Virus']
 songs.dropna(inplace=True)
