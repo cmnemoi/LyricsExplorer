@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import streamlit as st
 from matplotlib import pyplot as plt
 import seaborn as sns
 sns.set()
@@ -11,9 +12,13 @@ from wordcloud import WordCloud
 from datetime import datetime
 
 
+@st.cache
 def clean_text(text):
     #remove \n=
     text = text.replace('\n',' ')
+
+    #remove... something
+    text = re.sub(r'43embedshare urlcopyembedcopy','',text)
     
     #Remove punctuations
     text = re.sub(r'[?!.;:,#@-]', '', text)
@@ -22,6 +27,7 @@ def clean_text(text):
     text = text.lower()
     return text
 
+@st.cache
 def gen_freq(text,nb_words=20):
     #Will store the list of words
     word_list = []
@@ -39,6 +45,7 @@ def gen_freq(text,nb_words=20):
     
     return word_freq
 
+@st.cache
 def all_lyrics():
     s=''
     for i in range(len(songs['lyrics'])):
@@ -46,6 +53,7 @@ def all_lyrics():
 
     return s
 
+@st.cache
 def artist_lyrics(artist):
     s = ''
     for i in range(len(songs['lyrics'])):
@@ -53,16 +61,18 @@ def artist_lyrics(artist):
           s += songs.loc[i,'cleaned_lyrics']
     return s
 
+@st.cache
 def lexdiv(lyrics):
     try:
-        return len(set(lyrics.split()))/float(len(lyrics.split())) * 100
+        return len(set(lyrics.split()))/float(len(lyrics.split()))
     except:
         return 0
 
+@st.cache
 def calc_artist_nb_of_words(artist):
     return len(artist_lyrics(artist).split(' '))
     
-
+@st.cache
 def calcFreqOfTerm(artist, terms):    
     # Determine how many songs mention a given term
     sgs = songs[songs['artist'] == artist]
@@ -79,6 +89,7 @@ def calcFreqOfTerm(artist, terms):
     # return data
     return pd.DataFrame(data, columns=['frequency','count','total'], index=[artist])
 
+@st.cache
 def calcTermFreqAcrossArtists(artists, terms):
     if not isinstance(terms, list):
         terms = [terms]
@@ -87,7 +98,7 @@ def calcTermFreqAcrossArtists(artists, terms):
     term_freqs.term = "_OR_".join(terms)
     return term_freqs
 
-
+@st.cache
 def fitLine(x, y):
     A = np.vstack([x, np.ones(len(x))]).T
     soln = np.linalg.lstsq(A, y, rcond=None)[0]    
@@ -100,8 +111,12 @@ def fitLine(x, y):
         
     return y_fit, x, r2
 
+@st.cache
+def load_dataset():
+    return pd.read_csv('https://charlesmmbucket.s3.eu-west-3.amazonaws.com/songs.csv')
 
-songs = pd.read_csv('https://charlesmmbucket.s3.eu-west-3.amazonaws.com/songs.csv')
+songs = load_dataset()
+
 songs = songs.drop(['Unnamed: 0','fact_track','song_story'],axis=1)
 songs = songs[songs['artist'] != 'Blue Virus']
 songs.dropna(inplace=True)
@@ -145,30 +160,36 @@ y= nb_songs_per_artist_per_year
 y_fit, t, r2 = fitLine(x, y)
 i,j = np.argmin(t), np.argmax(t)
 
-
 fig3_1 = px.scatter(x=x,y=y,hover_name=artists,labels={'x':'Years of activity','y':'Number of songs per year'},width=800,height=800)
-fig3_2 = px.line(x=t[[i,j]], y=y_fit[[i,j]],width=800,height=800)
-fig3 = go.Figure(data=fig3_1.data + fig3_2.data,layout=go.Layout(width=800,height=800))
+fig3 = go.Figure(data=fig3_1.data,layout=go.Layout(width=800,height=800))
+fig3.add_scatter(x=t[[i,j]], y=y_fit[[i,j]],mode='lines',line=dict(color='white'))
 fig3.add_annotation(text=r'R²={:0.2f}'.format(r2),x=28,y=50)
+fig3.update_layout({'title':"Number of songs per year per years of activity",'width':800,'height':800})
+fig3.update_xaxes(title="Years of activity")
+fig3.update_yaxes(title="Number of songs per year")
 
 fig4 = px.histogram(word_counts,title="Histogram of words per song",width=800,height=800,labels={'value':'Words in song','count':'Number of songs'})
 
 fig5 = px.bar(x=artists,y=nb_words_per_song_per_artist,width=800,height=800,title='Distribution of number of words per song per artist',
               labels={'x':'Artists','y':'Number of words'})
 
-fig6 = px.histogram(lexical_diversity['mean'],width=800,height=800,title='Histogram of percentage of UNIQUE words per song',
+fig6 = px.histogram(lexical_diversity['mean']*100,width=800,height=800,title='Histogram of percentage of UNIQUE words per song',
               labels={'x':'Percentage of unique words'})
 
-fig7 = px.bar(x=artists,y=lexical_diversity['mean'],width=800,height=800,title='Percentage of UNIQUE words per song per artist',
+fig7 = px.bar(x=artists,y=lexical_diversity['mean']*100,width=800,height=800,title='Percentage of UNIQUE words per song per artist',
               labels={'x':'Artists','y':'Percentage of unique words'})
 
 x= songs['age']
-y= songs['lexical_diversity']
+y= songs['lexical_diversity']*100
 y_fit, t, r2 = fitLine(x, y)
 i,j = np.argmin(t), np.argmax(t)
 
-fig8_1 = px.scatter(x=songs['age'],y=songs['lexical_diversity'],hover_name=songs['title'],
+fig8_1 = px.scatter(x=songs['age'],y=songs['lexical_diversity']*100,hover_name=songs['title'],
                     labels={'x':'Age','y':'Lexical diversity'})
-fig8_2 = px.line(x=t[[i,j]], y=y_fit[[i,j]])
-fig8 = go.Figure(data=fig8_1.data + fig8_2.data,layout=go.Layout(width=800,height=800))
+fig8 = go.Figure(data=fig8_1.data,layout=go.Layout(width=800,height=800))
+fig8.add_scatter(x=t[[i,j]], y=y_fit[[i,j]],mode='lines',line=dict(color='white'))
+fig8.update_layout(title="Lexical diversity given the age of the song")
+fig8.update_xaxes(title="Age")
+fig8.update_yaxes(title="Lexical diversity (% of unique words)")
 fig8.add_annotation(text=r'R²={:0.2f}'.format(r2),x=30,y=0)
+
