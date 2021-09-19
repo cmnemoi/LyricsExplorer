@@ -10,6 +10,11 @@ from stop_words import get_stop_words
 import re
 from wordcloud import WordCloud
 from datetime import datetime
+import mysql.connector
+from mysql.connector import errorcode
+from sqlalchemy import create_engine
+from decouple import config
+
 
 
 @st.cache
@@ -111,13 +116,33 @@ def fitLine(x, y):
         
     return y_fit, x, r2
 
+config = {
+  'user': config('USER'),
+  'password': config('PASSWORD'),
+  'host': config('HOST'),
+  'database': config('DATABASE'),
+  'port': config('PORT')
+}
+
+try:
+  cnx = mysql.connector.connect(**config)
+except mysql.connector.Error as err:
+  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+    print("Something is wrong with your user name or password")
+  elif err.errno == errorcode.ER_BAD_DB_ERROR:
+    print("Database does not exist")
+  else:
+    print(err)
+
+engine = create_engine('mysql+mysqlconnector://'+config['user']+':'+config['password']+"@"
+    +config['host']+':'+str(config['port'])+'/'+config['database'])
+  
 @st.cache
 def load_dataset():
-    return pd.read_csv('https://charlesmmbucket.s3.eu-west-3.amazonaws.com/songs.csv')
+    return pd.read_sql('songs',engine.connect())
 
 songs = load_dataset()
 
-songs = songs.drop(['Unnamed: 0','fact_track','song_story'],axis=1)
 songs = songs[songs['artist'] != 'Blue Virus']
 songs.dropna(inplace=True)
 
