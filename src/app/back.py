@@ -123,22 +123,12 @@ config = {
   'database': config('DATABASE'),
   'port': config('PORT')
 }
-
-try:
-  cnx = mysql.connector.connect(**config)
-except mysql.connector.Error as err:
-  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-    print("Something is wrong with your user name or password")
-  elif err.errno == errorcode.ER_BAD_DB_ERROR:
-    print("Database does not exist")
-  else:
-    print(err)
-
-engine = create_engine('mysql+mysqlconnector://'+config['user']+':'+config['password']+"@"
-    +config['host']+':'+str(config['port'])+'/'+config['database'])
   
 @st.cache
 def load_dataset():
+    engine = create_engine('mysql+mysqlconnector://'+config['user']+':'+config['password']+"@"
+    +config['host']+':'+str(config['port'])+'/'+config['database'])
+
     return pd.read_sql('songs',engine.connect())
 
 songs = load_dataset()
