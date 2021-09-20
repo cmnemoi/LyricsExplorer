@@ -4,3 +4,5 @@ mdp_test_serv.txt
 new_user_credentials.csv
 LICENSE
 readme.md
+*.pub
+github_ssh_key
