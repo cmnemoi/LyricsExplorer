@@ -5,7 +5,7 @@ A web app allowing you to compare French Hip Hop lyrics
 
 # Overview
 
-Stack : **Python, Streamlit, Pandas, Plotly, LyricsGenius**
+Stack : Stack : **Python, Streamlit, Pandas, Plotly, LyricsGenius, SQLAlchemy, MySQL, AWS RDS**
 
 * 7800 songs collected through Genius API
 * Nice looking charts automatically generated from data and user types
