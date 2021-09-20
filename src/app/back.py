@@ -14,7 +14,8 @@ import mysql.connector
 from mysql.connector import errorcode
 from sqlalchemy import create_engine
 from decouple import config
-
+import lyricsgenius as genius
+from sqlalchemy import *
 
 
 @st.cache
@@ -115,35 +116,77 @@ def fitLine(x, y):
     r2 = round(1 - (ss_res / ss_tot), 3) # r-squared
         
     return y_fit, x, r2
+  
+@st.cache
+def load_dataset():
+    engine = create_engine('mysql+mysqlconnector://'+db_config['user']+':'+db_config['password']+"@"
+    +db_config['host']+':'+str(db_config['port'])+'/'+db_config['database'])
+    connection = engine.connect()
 
-config = {
+    return pd.read_sql('songs',connection)
+
+@st.cache
+def getLyrics(artist,max_songs=None):
+
+    client_access_token = config('GENIUS_CLIENT_ACCESS_TOKEN')
+
+    api = genius.Genius(client_access_token)
+    api.remove_section_headers=True
+    api.retries=1000
+    api.timeout=10
+    api.excluded_terms = ["(Remix)", "(Live)"]
+
+    a = api.search_artist(artist,max_songs)
+    songs = []
+    for i in range(len(a.songs)):
+        songs.append(a.songs[i].to_dict())
+    return songs
+
+@st.cache(suppress_st_warning=True)
+def insert_artist_to_db(artist):
+    
+    engine = create_engine('mysql+mysqlconnector://'+db_config['user']+':'+db_config['password']+"@"
+    +db_config['host']+':'+str(db_config['port'])+'/'+db_config['database'])
+    connection = engine.connect()
+    
+    metadata = MetaData(bind=connection)
+
+    songs_table = Table('songs', metadata, autoload = True)
+
+    with st.spinner("Adding "+artist+" to the database... It might take a while, maybe go grab a cup of tea ?"):
+        songs_to_insert = getLyrics(artist)
+        for song in songs_to_insert:
+            query = (songs_table.insert().values(title=song['title'],release_date=song['release_date'],artist=song['artist'],lyrics=song['lyrics']))
+            connection.execute(query)
+            st.info(song['title']+' from '+song['artist']+' added into the database successfully.')
+    st.success(artist+" added into the database successfully ! You can now enjoy their stats.")
+
+    
+
+db_config = {
   'user': config('USER'),
   'password': config('PASSWORD'),
   'host': config('HOST'),
   'database': config('DATABASE'),
   'port': config('PORT')
 }
-  
-@st.cache
-def load_dataset():
-    engine = create_engine('mysql+mysqlconnector://'+config['user']+':'+config['password']+"@"
-    +config['host']+':'+str(config['port'])+'/'+config['database'])
 
-    return pd.read_sql('songs',engine.connect())
-
+#connecting to DB and get dataset
 songs = load_dataset()
 
+#cleaning dataset and feature engineerin
 songs = songs[songs['artist'] != 'Blue Virus']
-songs.dropna(inplace=True)
+songs = songs[songs['lyrics'].notna()]
 
-artists = np.unique(songs['artist'])
+songs['release_date'] = [datetime.strptime(x,'%Y-%m-%d') if x != None else None for x in songs['release_date'] ]
 
-songs['release_date'] = [datetime.strptime(x,'%Y-%m-%d') for x in songs['release_date']]
-
-songs['age'] = [ (datetime.now() - x).days/365.25 for x in songs['release_date']]
+songs['age'] = [ (datetime.now() - x).days/365.25 if x != None else None for x in songs['release_date']]
 songs = songs[songs['age'] < 35]
 
 songs['cleaned_lyrics']= [clean_text(item) for item in songs['lyrics']]
+
+
+artists = np.unique(songs['artist'])
 
 songs['lexical_diversity'] = songs['cleaned_lyrics'].apply(lexdiv)
 lexical_diversity = songs.groupby('artist')['lexical_diversity'].describe()
@@ -151,7 +194,6 @@ min_lexdiv = artists[lexical_diversity['mean'].argmin()]
 max_lexdiv = artists[lexical_diversity['mean'].argmax()]
 
 songs.reset_index(drop=True,inplace=True)
-
 
 nb_songs_per_artist_l = [songs.groupby('artist').count().loc[artist,'title'] for artist in artists]
 nb_songs_per_artist = pd.DataFrame(nb_songs_per_artist_l,columns=['Number of songs'],index=artists)
@@ -164,6 +206,7 @@ word_counts = list(filter(lambda x: x<2000, word_counts))
 #Words per song per artist
 nb_words_per_song_per_artist = pd.Series([calc_artist_nb_of_words(artist)/nb_songs_per_artist.loc[artist,'Number of songs'] for artist in artists],index=artists)
 
+#graphs
 fig1 = px.bar(x=artists,y=nb_songs_per_artist_l,title='Distribution of number of songs per artist'
             ,labels={'x':'Artists','y':'Number of songs'},width=800,height=800)
 
@@ -207,4 +250,6 @@ fig8.update_layout(title="Lexical diversity given the age of the song")
 fig8.update_xaxes(title="Age")
 fig8.update_yaxes(title="Lexical diversity (% of unique words)")
 fig8.add_annotation(text=r'R²={:0.2f}'.format(r2),x=30,y=0)
+
+
 

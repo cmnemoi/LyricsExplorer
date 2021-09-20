@@ -9,7 +9,7 @@ client_access_token = config('GENIUS_CLIENT_ACCESS_TOKEN')
 api = genius.Genius(client_access_token)
 api.remove_section_headers=True
 api.retries=1000
-api.timeout=120
+api.timeout=10
 api.excluded_terms = ["(Remix)", "(Live)"]
 
 def getLyrics(artists,max_songs=None):
@@ -41,7 +41,7 @@ def formatSongs(raw_songs,artists):
        'description_annotation', 'featured_artists',
        'lyrics_marked_complete_by', 'media', 'producer_artists',
        'song_relationships', 'verified_annotations_by',
-       'verified_contributors', 'verified_lyrics_by', 'writer_artists'],axis=1,inplace=True)
+       'verified_contributors', 'verified_lyrics_by', 'writer_artists','fact_track','song_story'],axis=1,inplace=True)
     songs.reset_index(inplace=True,drop=True)
     return songs
 
