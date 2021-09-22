@@ -1,0 +1,5 @@
+.env
+*.txt
+new_user_credentials.csv
+*.orig
+*.rej
