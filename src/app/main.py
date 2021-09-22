@@ -8,12 +8,12 @@ oldest_song_year = back.songs['release_date'].min().year
 newest_song_year = back.songs['release_date'].max().year
 nb_songs_over_2000_words = len([song for song in back.songs['lyrics'] if len(song.split(' ')) > 2000])
 
-PAGES = ["Global stats","Individual artist","Correlations"]
+PAGES = ["Global stats","Individual artist","Correlations","Add artist"]
 st.sidebar.title('Menu :bulb:')
 choix_page = st.sidebar.radio(label="", options=PAGES)
 
-if choix_page == "Global stats":
-
+@st.cache(suppress_st_warning=True)
+def show_stats_page():
     st.title("French Rap Lyrics Explorator")
     st.header("Insights on French Rap with Data")
     '''
@@ -58,8 +58,7 @@ if choix_page == "Global stats":
 
     st.plotly_chart(back.fig8)
 
-elif choix_page == "Individual artist":
-
+def show_artist_page():
     st.write("Work In Progress")
 
     st.title("French Rap Lyrics Explorator")
@@ -72,7 +71,7 @@ elif choix_page == "Individual artist":
     st.write("That's more than "+str('{:0.2f}'.format((1-back.nb_songs_per_artist.rank(pct=True).loc[selected_artist,"Number of songs"])*100))+"% of artists.")
 
     st.subheader(selected_artist + " used " + str('{:0.2f}'.format(back.nb_words_per_song_per_artist.loc[selected_artist]))
-    + " words in total and " +str('{:0.2f}'.format(back.lexical_diversity.loc[selected_artist,'mean']*100)) + " unique words per song in average")
+    + " words in total and " +str('{:0.2f}'.format(back.lexical_diversity.loc[selected_artist,'mean']*100)) + "% of unique words per song in average")
     st.write("That's more than "+str('{:0.2f}'.format((1-back.nb_words_per_song_per_artist.rank(pct=True).loc[selected_artist])*100))+"% of artists.")
 
     
@@ -84,7 +83,7 @@ elif choix_page == "Individual artist":
     back.plt.axis("off")
     st.pyplot(chart)
 
-elif choix_page == "Correlations":
+def show_correlations_page():
     st.write("Work In Progress")
 
     st.title("French Rap Lyrics Explorator")
@@ -93,21 +92,44 @@ elif choix_page == "Correlations":
     first_term = st.text_input('Type one term')
     second_term = st.text_input('Type another term')
 
-    first_term_frequency = back.calcTermFreqAcrossArtists(back.artists,first_term)
-    second_term_frequency = back.calcTermFreqAcrossArtists(back.artists,second_term)
+    if first_term != '' and second_term != '':
+        first_term_frequency = back.calcTermFreqAcrossArtists(back.artists,first_term)
+        second_term_frequency = back.calcTermFreqAcrossArtists(back.artists,second_term)
 
-    x=first_term_frequency['frequency'].values*100
-    y=second_term_frequency['frequency'].values*100
-    y_fit, t, r2 = back.fitLine(x, y)
-    i,j = back.np.argmin(t), back.np.argmax(t)
+        x=first_term_frequency['frequency'].values*100
+        y=second_term_frequency['frequency'].values*100
+        y_fit, t, r2 = back.fitLine(x, y)
+        i,j = back.np.argmin(t), back.np.argmax(t)
 
-    fig9_1 = back.px.scatter(x=x,y=y,hover_name=back.artists)
-    fig9 = back.go.Figure(data=fig9_1.data,layout=back.go.Layout(width=800,height=800))
-    fig9.add_scatter(x=t[[i,j]], y=y_fit[[i,j]],mode='lines',line=dict(color='white'))
-    fig9.update_layout(title='Mentions of "{}" and "{}" in French rap'.format(first_term_frequency.term, second_term_frequency.term))
-    fig9.update_xaxes(title='Percent of an artist\'s songs mentioning "{}"'.format(first_term_frequency.term))
-    fig9.update_yaxes(title='% of an artist\'s songs mentioning "{}"'.format(second_term_frequency.term))
-    fig9.add_annotation(text=r'R²={:0.2f}'.format(r2),x=30,y=0)
+        fig9_1 = back.px.scatter(x=x,y=y,hover_name=back.artists)
+        fig9 = back.go.Figure(data=fig9_1.data,layout=back.go.Layout(width=800,height=800))
+        fig9.add_scatter(x=t[[i,j]], y=y_fit[[i,j]],mode='lines',line=dict(color='white'))
+        fig9.update_layout(title='Mentions of "{}" and "{}" in French rap'.format(first_term_frequency.term, second_term_frequency.term))
+        fig9.update_xaxes(title='Percent of an artist\'s songs mentioning "{}"'.format(first_term_frequency.term))
+        fig9.update_yaxes(title='% of an artist\'s songs mentioning "{}"'.format(second_term_frequency.term))
+        fig9.add_annotation(text=r'R²={:0.2f}'.format(r2),x=30,y=0)
 
-    st.plotly_chart(fig9)    
+        st.plotly_chart(fig9)
+
+def show_add_artist_page():
+    st.write("Work In Progress")
+
+    st.title("French Rap Lyrics Explorator")
+    st.header("Insights on French Rap with Data")
+
+    st.subheader("Your favorite artist is not in the database ? Add them !")
+    artist_to_add = st.text_input('Type one artist')
+
+    if artist_to_add != '':
+        back.insert_artist_to_db(artist_to_add)
+
+if choix_page == "Global stats":
+    show_stats_page()
+elif choix_page == "Individual artist":
+    show_artist_page()
+elif choix_page == "Correlations":
+    show_correlations_page()
+elif choix_page == "Add artist":
+    show_add_artist_page()
+    
 
