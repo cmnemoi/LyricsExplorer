@@ -1,11 +1,14 @@
-streamlit==0.87.0
-plotly==5.2.1
-pandas==1.3.1
-matplotlib==3.4.2
-numpy==1.20.3
-seaborn==0.11.1
-wordcloud==1.8.1
-lyricsgenius==3.0.1
-stop_words==2018.7.23
 beautifulsoup4==4.9.3
-python-decouple==3.4
+lyricsgenius==3.0.1
+matplotlib==3.4.2
+mysql-connector-python==8.0.26
+numpy @ file:///C:/ci/numpy_and_numpy_base_1626271900803/work
+pandas==1.3.1
+plotly==5.2.1
+seaborn==0.11.1
+SQLAlchemy==1.4.23
+stop-words==2018.7.23
+stopwords==1.0.0
+streamlit==0.87.0
+urllib3==1.26.6
+wordcloud==1.8.1
