@@ -1,7 +1,0 @@
-#test
-user : admin
-password : 53FpGMzYAbtkzFK
-
-#prod
-user : admin_le_dev
-pwd : QepWwJM9y4H7GbY
