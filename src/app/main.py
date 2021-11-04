@@ -12,7 +12,7 @@ PAGES = ["Global stats","Individual artist","Correlations","Add artist"]
 st.sidebar.title('Menu :bulb:')
 choix_page = st.sidebar.radio(label="", options=PAGES)
 
-@st.cache(suppress_st_warning=True)
+
 def show_stats_page():
     st.title("French Rap Lyrics Explorator")
     st.header("Insights on French Rap with Data")
