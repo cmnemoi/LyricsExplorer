@@ -142,7 +142,6 @@ def getLyrics(artist,max_songs=None):
         songs.append(a.songs[i].to_dict())
     return songs
 
-@st.cache(suppress_st_warning=True)
 def insert_artist_to_db(artist):
     
     engine = create_engine('mysql+mysqlconnector://'+db_config['user']+':'+db_config['password']+"@"
