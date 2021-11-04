@@ -119,7 +119,7 @@ def fitLine(x, y):
   
 @st.cache
 def load_dataset():
-    engine = create_engine('mysql+mysqlconnector://'+db_config['user']+':'+st.secrets["PASSWORD"]+"@"
+    engine = create_engine('mysql+mysqlconnector://'+db_config['user']+':'+db_config['password']+"@"
     +db_config['host']+':'+str(db_config['port'])+'/'+db_config['database'])
     connection = engine.connect()
 
@@ -164,7 +164,7 @@ def insert_artist_to_db(artist):
 
 db_config = {
   'user': config('USER'),
-  'password': config('PASSWORD'),
+  'password': st.secrets['PASSWORD'],
   'host': config('HOST'),
   'database': config('DATABASE'),
   'port': config('PORT')
