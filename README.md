@@ -16,7 +16,7 @@ Stack : **Python, Streamlit, Pandas, Plotly, Matplotlib, LyricsGenius, SQLAlchem
 
 ## Global stats
 
-![](https://i.ibb.co/KmGPBv3/Sans-titre.png)
+![](https://i.ibb.co/kMy7zCW/Sans-titre.png)
 ![](https://cdn.discordapp.com/attachments/513701275305639947/890300386139844678/newplot1.png)
 
 ## Individual artist
