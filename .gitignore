@@ -3,3 +3,5 @@
 new_user_credentials.csv
 *.orig
 *.rej
+*.pyc
+__pycache__

@@ -13,7 +13,7 @@ from datetime import datetime
 import mysql.connector
 from mysql.connector import errorcode
 from sqlalchemy import create_engine
-from decouple import config
+from os import getenv
 import lyricsgenius as genius
 from sqlalchemy import *
 
@@ -128,7 +128,7 @@ def load_dataset():
 @st.cache
 def getLyrics(artist,max_songs=None):
 
-    client_access_token = config('GENIUS_CLIENT_ACCESS_TOKEN')
+    client_access_token = getenv('GENIUS_CLIENT_ACCESS_TOKEN')
 
     api = genius.Genius(client_access_token)
     api.remove_section_headers=True
@@ -141,33 +141,14 @@ def getLyrics(artist,max_songs=None):
     for i in range(len(a.songs)):
         songs.append(a.songs[i].to_dict())
     return songs
-
-def insert_artist_to_db(artist):
-    
-    engine = create_engine('mysql+mysqlconnector://'+db_config['user']+':'+db_config['password']+"@"
-    +db_config['host']+':'+str(db_config['port'])+'/'+db_config['database'])
-    connection = engine.connect()
-    
-    metadata = MetaData(bind=connection)
-
-    songs_table = Table('songs', metadata, autoload = True)
-
-    with st.spinner("Adding "+artist+" to the database... It might take a while, maybe go grab a cup of tea ?"):
-        songs_to_insert = getLyrics(artist)
-        for song in songs_to_insert:
-            query = (songs_table.insert().values(title=song['title'],release_date=song['release_date'],artist=song['artist'],lyrics=song['lyrics']))
-            connection.execute(query)
-            st.info(song['title']+' from '+song['artist']+' added into the database successfully.')
-    st.success(artist+" added into the database successfully ! You can now enjoy their stats.")
-
     
 
 db_config = {
-  'user': config('USER'),
-  'password': st.secrets['PASSWORD'],
-  'host': config('HOST'),
-  'database': config('DATABASE'),
-  'port': config('PORT')
+  'user': getenv('USER'),
+  'password': getenv('PASSWORD'),
+  'host': getenv('HOST'),
+  'database': getenv('DATABASE'),
+  'port': getenv('PORT')
 }
 
 #connecting to DB and get dataset

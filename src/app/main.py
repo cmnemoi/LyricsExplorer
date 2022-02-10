@@ -8,7 +8,7 @@ oldest_song_year = back.songs['release_date'].min().year
 newest_song_year = back.songs['release_date'].max().year
 nb_songs_over_2000_words = len([song for song in back.songs['lyrics'] if len(song.split(' ')) > 2000])
 
-PAGES = ["Global stats","Individual artist","Correlations","Add artist"]
+PAGES = ["Global stats","Individual artist","Correlations"]
 st.sidebar.title('Menu :bulb:')
 choix_page = st.sidebar.radio(label="", options=PAGES)
 
@@ -111,17 +111,6 @@ def show_correlations_page():
 
         st.plotly_chart(fig9)
 
-def show_add_artist_page():
-    st.write("Work In Progress")
-
-    st.title("French Rap Lyrics Explorator")
-    st.header("Insights on French Rap with Data")
-
-    st.subheader("Your favorite artist is not in the database ? Add them !")
-    artist_to_add = st.text_input('Type one artist')
-
-    if artist_to_add != '':
-        back.insert_artist_to_db(artist_to_add)
 
 if choix_page == "Global stats":
     show_stats_page()
@@ -129,7 +118,5 @@ elif choix_page == "Individual artist":
     show_artist_page()
 elif choix_page == "Correlations":
     show_correlations_page()
-elif choix_page == "Add artist":
-    show_add_artist_page()
-    
+
 
