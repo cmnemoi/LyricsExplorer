@@ -123,7 +123,7 @@ def load_dataset():
     +db_config['host']+':'+str(db_config['port'])+'/'+db_config['database'])
     connection = engine.connect()
 
-    return pd.read_sql('songs',connection)
+    return pd.read_sql('songs'.lower(),connection)
 
 @st.cache
 def getLyrics(artist,max_songs=None):
