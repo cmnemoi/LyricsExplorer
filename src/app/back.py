@@ -10,14 +10,12 @@ from stop_words import get_stop_words
 import re
 from wordcloud import WordCloud
 from datetime import datetime
-import mysql.connector
-from mysql.connector import errorcode
 from sqlalchemy import create_engine
-from dotenv import load_dotenv
-load_dotenv()
-from os import environ,getenv
+from os import environ
 import lyricsgenius as genius
 from sqlalchemy import *
+# from dotenv import load_dotenv
+# load_dotenv()
 
 
 @st.cache
@@ -125,7 +123,7 @@ def load_dataset():
     +db_config['host']+':'+str(db_config['port'])+'/'+db_config['database'])
     connection = engine.connect()
 
-    return pd.read_sql('songs',connection)
+    return pd.read_sql('songs'.upper(),connection)
 
 @st.cache
 def getLyrics(artist,max_songs=None):
