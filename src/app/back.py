@@ -13,7 +13,9 @@ from datetime import datetime
 import mysql.connector
 from mysql.connector import errorcode
 from sqlalchemy import create_engine
-from os import getenv
+from dotenv import load_dotenv
+load_dotenv()
+from os import environ,getenv
 import lyricsgenius as genius
 from sqlalchemy import *
 
@@ -128,7 +130,7 @@ def load_dataset():
 @st.cache
 def getLyrics(artist,max_songs=None):
 
-    client_access_token = getenv('GENIUS_CLIENT_ACCESS_TOKEN')
+    client_access_token = environ['GENIUS_CLIENT_ACCESS_TOKEN']
 
     api = genius.Genius(client_access_token)
     api.remove_section_headers=True
@@ -144,11 +146,11 @@ def getLyrics(artist,max_songs=None):
     
 
 db_config = {
-  'user': getenv('USER'),
-  'password': getenv('PASSWORD'),
-  'host': getenv('HOST'),
-  'database': getenv('DATABASE'),
-  'port': getenv('PORT')
+  'user': environ['USER'],
+  'password': environ['PASSWORD'],
+  'host': environ['HOST'],
+  'database': environ['DATABASE'],
+  'port': environ['PORT']
 }
 
 #connecting to DB and get dataset
