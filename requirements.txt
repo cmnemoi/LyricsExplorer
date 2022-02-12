@@ -8,4 +8,4 @@ lyricsgenius==3.0.1
 plotly>=5.2.1
 wordcloud>=1.8.1
 beautifulsoup4>=4.10.0
-mysql-connector==2.2.9
+PyMySQL==1.0.2

@@ -119,7 +119,7 @@ def fitLine(x, y):
   
 @st.cache
 def load_dataset():
-    engine = create_engine('mysql+mysqlconnector://'+db_config['user']+':'+db_config['password']+"@"
+    engine = create_engine('mysql+pymysql://'+db_config['user']+':'+db_config['password']+"@"
     +db_config['host']+':'+str(db_config['port'])+'/'+db_config['database'])
     connection = engine.connect()
 
