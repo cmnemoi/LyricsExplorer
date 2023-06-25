@@ -13,7 +13,7 @@ from datetime import datetime
 from sqlalchemy import create_engine
 from os import environ
 import lyricsgenius as genius
-from sqlalchemy import *
+import sqlite3
 # from dotenv import load_dotenv
 # load_dotenv()
 
@@ -119,12 +119,8 @@ def fitLine(x, y):
   
 @st.cache
 def load_dataset():
-    engine = create_engine('mysql+pymysql://'+db_config['user']+':'+db_config['password']+"@"
-    +db_config['host']+':'+str(db_config['port'])+'/'+db_config['database'])
-    connection = engine.connect()
-
-
-    return pd.read_sql('songs'.lower(),connection)
+    connection = sqlite3.connect('data/database.db')
+    return pd.read_sql_query("SELECT * FROM songs", connection)
 
 
 @st.cache
@@ -144,14 +140,6 @@ def getLyrics(artist,max_songs=None):
         songs.append(a.songs[i].to_dict())
     return songs
     
-
-db_config = {
-  'user': environ['USER'],
-  'password': environ['PASSWORD'],
-  'host': environ['HOST'],
-  'database': environ['DATABASE'],
-  'port': environ['PORT']
-}
 
 #connecting to DB and get dataset
 songs = load_dataset()
