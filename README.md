@@ -8,9 +8,18 @@ A web app allowing you to compare French Hip Hop lyrics
 Stack : **Python, Streamlit, Pandas, Plotly, Matplotlib, LyricsGenius, SQLAlchemy, MySQL, AWS RDS**
 
 * 21723 songs collected through LyricsGenius API
-* MySQL database hosted on a AWS RDS DB instance
+* ~~MySQL database hosted on a AWS RDS DB instance~~ Moved to SQLite 
 * Nice looking charts automatically generated from data and user entries
 * Web app with Streamlit
+
+# Run the project locally
+
+```bash
+conda create -n lyrics-explorer python=3.9 -y
+conda activate lyrics-explorer
+pip install -r requirements.txt
+streamlit run src/app/main.py
+```
 
 # Sections
 
