@@ -1,3 +1,6 @@
+ci-install:
+	pip install -r requirements.txt
+
 install:
 	conda create -n lyrics-explorer python=3.9
 	conda activate lyrics-explorer
