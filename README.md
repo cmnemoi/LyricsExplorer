@@ -1,7 +1,7 @@
 # LyricsExplorer
 A web app allowing you to compare French Hip Hop lyrics
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://bit.ly/LyricsExplorer)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://lyrics-explorer.streamlit.app/)
 
 # Overview
 
