@@ -1,5 +1,10 @@
-check:
+check: check-format check-lint
+
+check-format:
 	uv run ruff format . --diff
+
+check-lint:
+	uv run ruff check .
 
 install: setup-git-hooks
 	uv lock --locked
