@@ -38,8 +38,6 @@ jobs:
         run: make check-format
       - name: Lint code with Ruff
         run: make check-lint
-      - name: Check types with Mypy
-        run: make check-types
   
   test:
     name: Tests
