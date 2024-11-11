@@ -13,6 +13,9 @@ lint:
 run:
 	streamlit run src/app/main.py
 
+test:
+	uv run pytest -v --cov=src
+
 setup-git-hooks:
 	chmod +x hooks/pre-commit
 	chmod +x hooks/pre-push
