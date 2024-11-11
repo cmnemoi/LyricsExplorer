@@ -2,16 +2,15 @@ check:
 	uv run ruff format . --diff
 
 install: setup-git-hooks
-	python3 -m venv .venv
-	source .venv/bin/activate
-	pip install -r requirements.txt
+	uv lock --locked
+	uv sync --locked --group dev --group lint --group test
 
 lint:
-	ruff format .
-	ruff check . --fix
+	uv run ruff format .
+	uv run ruff check . --fix
 
 run:
-	streamlit run src/app/main.py
+	uv run streamlit run src/app/main.py
 
 test:
 	uv run pytest -v --cov=src
