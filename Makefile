@@ -18,7 +18,7 @@ run:
 	uv run streamlit run src/app/main.py
 
 test:
-	uv run pytest -v --cov=src
+	uv run pytest -v --cov=src --cov-report=xml
 
 setup-git-hooks:
 	chmod +x hooks/pre-commit
