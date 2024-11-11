@@ -1,24 +1,18 @@
 import numpy as np
 import pandas as pd
 import streamlit as st
-from matplotlib import pyplot as plt
-import seaborn as sns
-sns.set()
 import plotly.express as px
 import plotly.graph_objects as go
 from stop_words import get_stop_words
 import re
-from wordcloud import WordCloud
 from datetime import datetime
 from sqlalchemy import create_engine
 from os import environ
 import lyricsgenius as genius
 import sqlite3
-# from dotenv import load_dotenv
-# load_dotenv()
 
 
-@st.cache
+@st.cache_resource
 def clean_text(text):
     #remove \n=
     text = text.replace('\n',' ')
@@ -33,7 +27,7 @@ def clean_text(text):
     text = text.lower()
     return text
 
-@st.cache
+@st.cache_resource
 def gen_freq(text,nb_words=20):
     #Will store the list of words
     word_list = []
@@ -51,7 +45,7 @@ def gen_freq(text,nb_words=20):
     
     return word_freq
 
-@st.cache
+@st.cache_resource
 def all_lyrics():
     s=''
     for i in range(len(songs['lyrics'])):
@@ -59,7 +53,7 @@ def all_lyrics():
 
     return s
 
-@st.cache
+@st.cache_resource
 def artist_lyrics(artist):
     s = ''
     for i in range(len(songs['lyrics'])):
@@ -67,18 +61,18 @@ def artist_lyrics(artist):
           s += songs.loc[i,'cleaned_lyrics']
     return s
 
-@st.cache
+@st.cache_resource
 def lexdiv(lyrics):
     try:
         return len(set(lyrics.split()))/float(len(lyrics.split()))
     except:
         return 0
 
-@st.cache
+@st.cache_resource
 def calc_artist_nb_of_words(artist):
     return len(artist_lyrics(artist).split(' '))
     
-@st.cache
+@st.cache_resource
 def calcFreqOfTerm(artist, terms):    
     # Determine how many songs mention a given term
     sgs = songs[songs['artist'] == artist]
@@ -95,7 +89,7 @@ def calcFreqOfTerm(artist, terms):
     # return data
     return pd.DataFrame(data, columns=['frequency','count','total'], index=[artist])
 
-@st.cache
+@st.cache_resource
 def calcTermFreqAcrossArtists(artists, terms):
     if not isinstance(terms, list):
         terms = [terms]
@@ -104,7 +98,7 @@ def calcTermFreqAcrossArtists(artists, terms):
     term_freqs.term = "_OR_".join(terms)
     return term_freqs
 
-@st.cache
+@st.cache_resource
 def fitLine(x, y):
     A = np.vstack([x, np.ones(len(x))]).T
     soln = np.linalg.lstsq(A, y, rcond=None)[0]    
@@ -117,13 +111,13 @@ def fitLine(x, y):
         
     return y_fit, x, r2
   
-@st.cache
+@st.cache_resource
 def load_dataset():
     connection = sqlite3.connect('data/database.db')
     return pd.read_sql_query("SELECT * FROM songs", connection)
 
 
-@st.cache
+@st.cache_resource
 def getLyrics(artist,max_songs=None):
 
     client_access_token = environ['GENIUS_CLIENT_ACCESS_TOKEN']

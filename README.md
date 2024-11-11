@@ -15,8 +15,8 @@ Stack : **Python, Streamlit, Pandas, Plotly, Matplotlib, LyricsGenius, SQLAlchem
 # Run the project locally
 
 ```bash
-conda create -n lyrics-explorer python=3.9 -y
-conda activate lyrics-explorer
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 streamlit run src/app/main.py
 ```
