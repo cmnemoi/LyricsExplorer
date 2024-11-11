@@ -14,6 +14,7 @@ Stack : **Python, Streamlit, Pandas, Plotly, Matplotlib, LyricsGenius, SQLAlchem
 * ~~MySQL database hosted on a AWS RDS DB instance~~ Moved to SQLite 
 * Nice looking charts automatically generated from data and user entries
 * Web app with Streamlit
+* Quality pipeline with Github Actions (lint with Ruff, test with Pytest)
 
 # Run the project locally
 
@@ -29,18 +30,13 @@ streamlit run src/app/main.py
 ## Global stats
 
 ![](https://i.ibb.co/kMy7zCW/Sans-titre.png)
-![](https://cdn.discordapp.com/attachments/513701275305639947/890300386139844678/newplot1.png)
+
+![Imgur](https://i.imgur.com/5Gz1bBm.png)
 
 ## Individual artist
 
-![](https://cdn.discordapp.com/attachments/513701275305639947/890300403135152128/newplot3.png)
+![Imgur](https://imgur.com/inJcVRM.png)
 
 ## Correlations
 
-![](https://cdn.discordapp.com/attachments/513701275305639947/890300388014694470/newplot4.png)
-
-## Add artist
-
-![](https://cdn.discordapp.com/attachments/513701275305639947/890300386286645298/newplot5.png)
-![](https://cdn.discordapp.com/attachments/513701275305639947/890300386781593630/newplot6.png)
-
+![Imgur](https://imgur.com/nxUandz.png)
