@@ -1,6 +1,9 @@
 # LyricsExplorer
 A web app allowing you to compare French Hip Hop lyrics
 
+[![Continous Integration](https://github.com/cmnemoi/LyricsExplorer/actions/workflows/ci.yaml/badge.svg)](https://github.com/cmnemoi/LyricsExplorer/actions/workflows/ci.yaml)
+[![codecov](https://codecov.io/github/cmnemoi/LyricsExplorer/graph/badge.svg?token=31F9TEL4OU)](https://codecov.io/github/cmnemoi/LyricsExplorer)
+
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://lyrics-explorer.streamlit.app/)
 
 # Overview
