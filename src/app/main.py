@@ -1,4 +1,7 @@
+from matplotlib import pyplot as plt
+from wordcloud import WordCloud
 import streamlit as st
+
 import back
 
 
@@ -139,12 +142,12 @@ def show_artist_page():
 
     st.subheader("Word cloud of " + selected_artist)
 
-    wc = back.WordCloud(width=800, height=400).generate_from_frequencies(
+    wc = WordCloud(width=800, height=400).generate_from_frequencies(
         back.gen_freq(back.artist_lyrics(selected_artist))
     )
-    chart = back.plt.figure(figsize=(20, 20))
-    back.plt.imshow(wc, interpolation="bilinear")
-    back.plt.axis("off")
+    chart = plt.figure(figsize=(20, 20))
+    plt.imshow(wc, interpolation="bilinear")
+    plt.axis("off")
     st.pyplot(chart)
 
 
